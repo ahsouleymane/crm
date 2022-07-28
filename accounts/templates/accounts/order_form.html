@@ -1,12 +1,32 @@
 {% extends 'accounts/main.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 <form action="" method="POST">
-    {% csrf_token %}
-    {{form}}
 
-    <input type="submit" name="submit">
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="container col-md-6 col-md-offset-3">
+            <div class="card card-body">
+                {% csrf_token %}
+
+                {{form|crispy}}
+
+                <hr>
+
+                <div>
+
+                    <input class="btn btn-success btn-sm" type="submit" name="confirm">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </form>
 
 {% endblock %}

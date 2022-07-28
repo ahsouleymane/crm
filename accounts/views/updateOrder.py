@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from accounts.forms import OrderForm
+from accounts.models import Order
 
-def createOrder(request):
-
-    form = OrderForm
+def updateOrder(request, pk):
+    order = Order.objects.get(id=pk)
+    form = OrderForm(instance=order)
     if request.method == "POST":
         #print('Printing post:', request.POST)
-        form = OrderForm(request.POST)
+        form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
             
