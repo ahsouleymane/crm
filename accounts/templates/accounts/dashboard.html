@@ -16,8 +16,17 @@
                 <tr>
                     <th></th>
                     <th>Customer</th>
-                    <th>Order</th>
+                    <th>Phone</th>
                 </tr>
+
+                {% for customer in customers %}
+                    <tr>
+                        <th></th>
+                        <th>{{ customer.name }}</th>
+                        <th>{{ customer.phone }}</th>
+                    </tr>
+                {% endfor %}
+
             </table>
         </div>
     </div>
@@ -26,7 +35,7 @@
         <h5>LAST 5 ORDERS:</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="">Create Order</a>
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_order' %}">Create Order</a>
             <table class="table table-sm">
                 <tr>
                     <th></th>
@@ -36,6 +45,18 @@
                     <th>Update</th>
                     <th>Remove</th>
                 </tr>
+
+                {% for order in orders %}
+                    <tr>
+                        <th></th>
+                        <td>{{ order.product }}</dt>
+                        <td>{{ order.date_created }}</dt>
+                        <td>{{ order.status }}</dt>
+                        <td><a style="color: green;" href="">Update</a></td>
+                        <td><a style="color: red;" href="">Delete</a></td>
+                    </tr>
+                {% endfor %}
+
             </table>
         </div>
     </div>

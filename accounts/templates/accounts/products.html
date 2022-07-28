@@ -18,11 +18,20 @@
                             <th>Category</th>
                             <th>Price</th>
                         </tr>
+
+                        {% for product in products %}
+                            <tr>
+                                <td>{{ product.name }}</dt>
+                                <td>{{ product.category }}</dt>
+                                <td>{{ product.price }}</dt>
+                            </tr>
+                        {% endfor %}
+
                     </table>
                 </div>
             </div>
         </div>
     </div>
 
-    
+   
 {% endblock %}
