@@ -3,30 +3,34 @@
 
 {% block content %}
 
-<form action="" method="POST">
-
     <br>
     <br>
 
     <div class="row">
         <div class="container col-md-6 col-md-offset-3">
             <div class="card card-body">
-                {% csrf_token %}
+                <form action="" method="POST">
+                    {% csrf_token %}
 
-                {{form|crispy}}
+                    {{ formset.management_form }}
 
-                <hr>
+                    {% for form in formset %}
+                        <div>
+                            {{form}}
+                        </div>
+                        <hr>
+                    {% endfor %}
 
-                <div>
+                    <div>
 
-                    <input class="btn btn-success btn-sm" type="submit" name="confirm">
+                        <input class="btn btn-success btn-sm" type="submit" name="confirm">
 
-                </div>
+                    </div>
+
+                </form>
 
             </div>
         </div>
     </div>
-
-</form>
 
 {% endblock %}
