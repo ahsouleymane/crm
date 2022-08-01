@@ -1,11 +1,13 @@
 import imp
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from accounts.decorators import allowed_users
 from accounts.models import Customer
 from accounts.filters import OrderFilter
 # Create your views here.
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def customer(request, pk_test):
     customer = Customer.objects.get(id=pk_test)
     orders = customer.order_set.all()

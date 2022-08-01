@@ -1,7 +1,9 @@
 from django.urls import path
-from accounts.views import home, products, customer, createOrder, updateOrder, deleteOrder, login, register, logout
+from accounts.views import home, products, customer, createOrder, updateOrder, deleteOrder, login, register, logout, user
 
 urlpatterns = [
+
+    path('user/', user.userPage, name="user_page"),
 
     path('login/', login.loginPage, name="login"),
     path('register/', register.registerPage, name="register"),
