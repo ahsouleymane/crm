@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from accounts.models import Order
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login')
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
     if request.method == "POST":

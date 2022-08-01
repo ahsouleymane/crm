@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from accounts.forms import OrderForm
 from accounts.models import Order
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login')
 def updateOrder(request, pk):
     order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)

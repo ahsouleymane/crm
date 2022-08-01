@@ -7,7 +7,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color: #87cefa;">
 
 <br><br><br>
 
@@ -20,9 +20,11 @@
                         <strong>REGISTER ACCOUNT</strong>
                     </div>
                 </div>
-                <div class="card card-body">
+                <div class="card card-body" style="background-color: #afeeee;">
 
                     {% csrf_token %}
+
+                    {{form.errors}}
 
                     {{ form.username.label }}
                     {{ form.username }}
@@ -44,7 +46,11 @@
 
                     <hr>
 
-                    <button type="submit" name="Create User">Register Account</button>
+                    <button class="btn btn-info" type="submit" name="Create User">Register Account</button>
+
+                    <hr>
+
+                    <p style="text-align: center;">Already have an account ? <a href="{% url 'login' %}">Login</a></p>
 
                 </div>
             </div>

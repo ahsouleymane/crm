@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from accounts.forms import OrderForm
 from accounts.models import Customer, Order
 from django.forms import inlineformset_factory
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login')
 def createOrder(request, pk):
 
     OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=10)
