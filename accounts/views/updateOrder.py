@@ -7,15 +7,15 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def updateOrder(request, pk):
+
     order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)
+
     if request.method == "POST":
-        #print('Printing post:', request.POST)
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            
-        return redirect('/')
+            return redirect('/')
 
     context = {'form': form}
-    return render(request, 'accounts/order_form.html', context)
+    return render(request, 'accounts/updateOrder_form.html', context)
