@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -14,20 +15,6 @@ class Customer(models.Model):
 
     def __str__(self):
         return str(self.name) or ''
-    
-def created_profile(sender, instance, created, **kwargs):
-    if created:
-        Customer.objects.create(user=instance)
-        print('Profil créé avec succès !')
-        
-post_save.connect(created_profile, sender=User)
-
-def update_profile(sender, instance, created, **kwargs):
-    if created == False:
-        instance.profile.save()
-        print('Profil mis à jour avec succès !')
-        
-post_save.connect(update_profile, sender=User)
 
 class Tag(models.Model):
     name = models.CharField(max_length=200, null=True)
