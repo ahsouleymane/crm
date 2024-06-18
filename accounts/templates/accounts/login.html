@@ -29,22 +29,22 @@
                     {% endfor %}
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Username</label>
+                        <label for="exampleInputEmail1">Nom d'utilisateur</label>
                         <input type="text" class="form-control" name="username"placeholder="Enter username">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Password</label>
+                        <label for="exampleInputEmail1">Mot de passe</label>
                         <input type="password" class="form-control" name="password" placeholder="Enter password">
                     </div>
 
                     <hr>
 
-                    <button class="btn btn-info" type="submit" name="Create User">Login</button>
+                    <button class="btn btn-info" type="submit" name="Create User">Se connecter</button>
 
                     <hr>
 
-                    <p style="text-align: center;">Don't have an account ? <a href="{% url 'register' %}">Sign Up</a></p>
+                    <p style="text-align: center;">Vous ne possédez pas encore de compte ? <a href="{% url 'register' %}">S'inscrire</a></p>
 
                 </div>
             </div>

@@ -11,10 +11,10 @@ def userPage(request):
     orders = request.user.customer.order_set.all()
     customers = Customer.objects.all()
     total_orders = orders.count()
-    delivered = orders.filter(status='Delivered').count()
-    pending = orders.filter(status='Pending').count()
+    LivrE = orders.filter(status='Livré').count()
+    En_attente = orders.filter(status='En attente').count()
 
     context = {'orders':orders, 'customers':customers,
-    'total_orders':total_orders, 'delivered':delivered,
-    'pending':pending}
+    'total_orders':total_orders, 'LivrE':LivrE,
+    'En_attente':En_attente}
     return render(request, 'accounts/user.html', context)
