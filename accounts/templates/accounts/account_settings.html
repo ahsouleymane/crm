@@ -16,7 +16,7 @@
     <div class="col-md-3">
         <div class="card card-body">
             <a class="btn btn-warning" href='{% url 'home' %}'>
-            &#8592; Retour au profil </a>
+            &#8592; Retour à l'acceuil</a>
             <hr>
             <h3 style="text-align: center">Paramètre du compte</h3>
             <hr>
@@ -27,7 +27,7 @@
         <div class="card card-body">
             <form method="POST" action="" enctype="multipart/form-data">
                 {% csrf_token %}
-                
+
                 {{ form.as_p }}
 
                 <input class="btn btn-primary" type="submit"
